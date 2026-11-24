@@ -99,6 +99,56 @@
     }
   }
 
+  /* ---------- Carousel: slides one card at a time, loops, pauses on hover ---------- */
+  function initCarousel(root) {
+    if (!root) return;
+    const track = root.querySelector(".carousel-track");
+    const originals = [...track.children];
+    const n = originals.length;
+    originals.forEach((it) => { const c = it.cloneNode(true); c.setAttribute("aria-hidden", "true"); c.tabIndex = -1; track.appendChild(c); });
+    const dots = [...root.querySelectorAll(".carousel-dot")];
+    let i = 0, timer = null, paused = false;
+    const stepPx = () => {
+      const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+      return track.children[0].getBoundingClientRect().width + gap;
+    };
+    const place = (k, animate) => {
+      i = k;
+      track.style.transition = animate ? "" : "none";
+      track.style.transform = `translateX(${-i * stepPx()}px)`;
+      const active = ((i % n) + n) % n;
+      dots.forEach((d, j) => d.setAttribute("aria-current", String(j === active)));
+      if (!animate) void track.offsetWidth; // apply instantly before the next animated move
+    };
+    const move = (d) => {
+      if (i + d < 0) place(i + n, false);
+      if (i + d > n) place(i - n, false);
+      place(i + d, true);
+    };
+    track.addEventListener("transitionend", () => { if (i >= n) place(i - n, false); });
+    root.querySelectorAll(".carousel-btn").forEach((b) => b.addEventListener("click", () => { move(+b.dataset.dir); restart(); }));
+    dots.forEach((d) => d.addEventListener("click", () => { place(+d.dataset.i, true); restart(); }));
+    const reduced = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const restart = () => {
+      clearInterval(timer);
+      if (!reduced && !paused) timer = setInterval(() => { if (!document.hidden) move(1); }, 3500);
+    };
+    root.addEventListener("mouseenter", () => { paused = true; clearInterval(timer); });
+    root.addEventListener("mouseleave", () => { paused = false; restart(); });
+    root.addEventListener("focusin", () => { paused = true; clearInterval(timer); });
+    root.addEventListener("focusout", () => { paused = false; restart(); });
+    // swipe on touch screens
+    let x0 = null;
+    root.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+    root.addEventListener("touchend", (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) { move(dx < 0 ? 1 : -1); restart(); }
+    });
+    window.addEventListener("resize", () => place(i, false));
+    place(0, false); restart();
+  }
+
   /* ---------- About ---------- */
   const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
 
@@ -149,13 +199,22 @@
       </section>
       <section class="section">
         <div class="wrap">
-          <div class="link-cards">
-            ${cards.map(([href, title, desc, count]) => `
-              <a class="card link-card fade-in" href="${href}">
-                <h3>${esc(title)}</h3>
-                <p>${esc(desc)}</p>
-                <div class="foot"><span class="count">${esc(count)}</span></div>
-              </a>`).join("")}
+          <div class="carousel fade-in" aria-roledescription="carousel" aria-label="Site sections">
+            <div class="carousel-viewport">
+              <div class="carousel-track link-cards">
+                ${cards.map(([href, title, desc, count]) => `
+                  <a class="card link-card" href="${href}">
+                    <h3>${esc(title)}</h3>
+                    <p>${esc(desc)}</p>
+                    <div class="foot"><span class="count">${esc(count)}</span></div>
+                  </a>`).join("")}
+              </div>
+            </div>
+            <div class="carousel-controls">
+              <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous">&#8249;</button>
+              <div class="carousel-dots">${cards.map((c, i) => `<button type="button" class="carousel-dot" data-i="${i}" aria-label="Show ${esc(c[1])}"></button>`).join("")}</div>
+              <button type="button" class="carousel-btn" data-dir="1" aria-label="Next">&#8250;</button>
+            </div>
           </div>
         </div>
       </section>
@@ -171,6 +230,8 @@
             </div>`).join("")}
         </div>
       </section>` : ""}`;
+
+    initCarousel($("#about .carousel"));
 
     const ld = {
       "@context": "https://schema.org", "@type": "Person", name: p.name, jobTitle: p.position,

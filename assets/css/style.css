@@ -146,6 +146,18 @@ main { min-height: 50vh; }
 
 /* Portal-style link cards */
 .link-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.carousel-viewport { overflow: hidden; }
+.carousel-track { display: flex; gap: 24px; transition: transform .7s cubic-bezier(.4, 0, .2, 1); will-change: transform; }
+.carousel-track .link-card { flex: 0 0 calc((100% - 48px) / 3); }
+.carousel-controls { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 26px; }
+.carousel-btn {
+  width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: var(--ink);
+  font-size: 1.5rem; line-height: 1; cursor: pointer; display: grid; place-items: center; padding-bottom: 3px; transition: all .2s;
+}
+.carousel-btn:hover { background: var(--navy-800); border-color: var(--navy-800); color: #fff; }
+.carousel-dots { display: flex; gap: 8px; }
+.carousel-dot { width: 9px; height: 9px; border-radius: 50%; border: 0; padding: 0; background: #c7cfdb; cursor: pointer; transition: all .3s; }
+.carousel-dot[aria-current="true"] { background: var(--accent); width: 26px; border-radius: 5px; }
 .link-card { display: flex; flex-direction: column; min-height: 230px; color: inherit; }
 .link-card:hover { text-decoration: none; transform: translateY(-4px); box-shadow: 0 16px 36px rgba(16,26,61,.12); background: #f3eee7; }
 .link-card h3 { font-size: 1.65rem; }
@@ -296,6 +308,7 @@ a.pub-title:hover { color: var(--accent); }
 }
 @media (max-width: 900px) {
   .link-cards { grid-template-columns: repeat(2, 1fr); }
+  .carousel-track .link-card { flex-basis: calc((100% - 24px) / 2); }
   .about-grid, .cv-grid { grid-template-columns: 1fr; }
   .project.has-image { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -307,6 +320,7 @@ a.pub-title:hover { color: var(--accent); }
   .hero-photo { width: 132px; height: 132px; }
   .section { padding: 48px 0; }
   .link-cards { grid-template-columns: 1fr; }
+  .carousel-track .link-card { flex-basis: 100%; }
   .link-card { min-height: 0; }
   .card, .post-card, .project { padding: 26px 22px; }
   .entry { grid-template-columns: 1fr; gap: 4px; padding: 22px; }
