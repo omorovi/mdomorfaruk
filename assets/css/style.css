@@ -36,7 +36,7 @@
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; font-family: var(--sans); font-size: 16px; line-height: 1.65; color: var(--ink-2);
-  background: #fff url("../img/circuit-pattern.svg?v=2") 0 0 / 640px 480px repeat fixed;
+  background: #fff;
   -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; display: block; }
@@ -331,5 +331,4 @@ a.pub-title:hover { color: var(--accent); }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .brand-tag { display: none; }
   .hero::after { background-position: center, center; opacity: .85; }
-  body { background-attachment: scroll; }
 }
