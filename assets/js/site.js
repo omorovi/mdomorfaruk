@@ -100,7 +100,6 @@
   }
 
   /* ---------- About ---------- */
-  const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
 
   async function renderAbout(p) {
@@ -155,7 +154,7 @@
               <a class="card link-card fade-in" href="${href}">
                 <h3>${esc(title)}</h3>
                 <p>${esc(desc)}</p>
-                <div class="foot"><span class="count">${esc(count)}</span><span class="arrow-btn" aria-hidden="true">${ARROW}</span></div>
+                <div class="foot"><span class="count">${esc(count)}</span></div>
               </a>`).join("")}
           </div>
         </div>
