@@ -378,3 +378,10 @@ a.pub-title:hover { color: var(--accent); }
 .site-footer ul { display: grid; grid-template-columns: repeat(2, max-content); column-gap: 28px; row-gap: 4px; }
 .footer-bottom { margin-top: 22px; padding-top: 12px; font-size: .8rem; }
 @media (max-width: 640px) { .footer-grid { gap: 24px; } }
+
+/* ===== Footer in the same blush color as the header ===== */
+.site-footer { background: linear-gradient(160deg, var(--hero-top), #fbf3f5 50%, var(--hero-bottom)); color: var(--ink-2); border-top: 1px solid #f1e6ea; }
+.footer-name, .site-footer h3 { color: var(--ink); }
+.site-footer a { color: var(--ink-2); }
+.site-footer a:hover { color: var(--accent); }
+.footer-bottom { border-top-color: rgba(15, 23, 42, .08); color: var(--muted); }
