@@ -85,6 +85,7 @@
       try { msg = (await r.json()).message || msg; } catch (_) { /* ignore */ }
       if (r.status === 401) msg = "GitHub rejected the access token. It may have expired — sign in again with a new token.";
       if (r.status === 403 && /rate limit/i.test(msg)) msg = "GitHub rate limit reached. Please wait a few minutes and try again.";
+      else if (r.status === 403 && /not accessible by personal access token/i.test(msg)) msg = "Your GitHub token isn't allowed to save changes. On GitHub, open Settings → Developer settings → Fine-grained tokens, edit this token, make sure this repository is selected, and set Repository permissions → Contents to “Read and write”. Then click Save again — no need to sign in again.";
       const e = new Error(msg); e.status = r.status; throw e;
     }
     return r.status === 204 ? null : r.json();
