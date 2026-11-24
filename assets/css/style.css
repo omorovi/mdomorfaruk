@@ -25,7 +25,7 @@
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; font-family: var(--sans); font-size: 16px; line-height: 1.65; color: var(--ink-2);
-  background: #fff var(--pattern) center top / 1400px auto repeat fixed;
+  background: #fff url("../img/circuit-pattern.svg") 0 0 / 640px 480px repeat fixed;
   -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; display: block; }
@@ -86,7 +86,10 @@ p { margin: 0 0 1em; }
   filter: blur(var(--hero-blur, 0px));
 }
 .hero.has-img { --hero-blur: 6px; }
-.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(13,11,46,.55), rgba(23,20,74,.82)); }
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: url("../img/hero-tech.svg") center / cover no-repeat, linear-gradient(180deg, rgba(13,11,46,.55), rgba(23,20,74,.82));
+}
 .hero .eyebrow { display: block; font-size: .78rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--sky); margin-bottom: 16px; }
 .hero h1 { color: #fff; font-size: clamp(2.4rem, 5.6vw, 4.4rem); letter-spacing: -.02em; line-height: 1.05; }
 .hero .lead { font-size: 1.15rem; color: rgba(255,255,255,.88); margin: 18px auto 0; max-width: 60ch; }
@@ -102,8 +105,9 @@ p { margin: 0 0 1em; }
 .chip-link {
   display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border: 1px solid rgba(255,255,255,.4);
   color: #fff; font-size: .88rem; font-weight: 500; transition: background .2s, border-color .2s;
+  background: rgba(17, 14, 56, .78); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
 }
-.chip-link:hover { background: rgba(255,255,255,.12); border-color: #fff; text-decoration: none; }
+.chip-link:hover { background: #2a2470; border-color: #fff; text-decoration: none; }
 .chip-link svg { width: 15px; height: 15px; flex: none; }
 
 /* ===== Main ===== */
@@ -301,5 +305,6 @@ a.pub-title:hover { color: var(--accent); }
   .lightbox { padding: 56px 12px; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .brand-tag { display: none; }
+  .hero::after { background-position: center, center; opacity: .85; }
   body { background-attachment: scroll; }
 }
