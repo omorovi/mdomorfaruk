@@ -291,6 +291,7 @@
     { key: "location", label: "Location", type: "text" },
     { key: "email", label: "Email", type: "email" },
     { key: "photo", label: "Profile photo", type: "image", dir: "images/uploads", wide: true, help: "A square photo works best." },
+    { key: "heroImage", label: "Header background photo (optional)", type: "image", dir: "images/uploads", wide: true, help: "Shown softly blurred behind the navy header on every page — e.g. a campus, lab or conference photo. Leave empty for plain navy." },
     { key: "bio", label: "Introduction", type: "textarea", rows: 8, help: "Leave an empty line between paragraphs." },
     { key: "interests", label: "Research interests", type: "lines", rows: 6, help: "One per line." },
     { key: "links.googleScholar", label: "Google Scholar URL", type: "url", placeholder: "https://scholar.google.com/citations?user=…" },

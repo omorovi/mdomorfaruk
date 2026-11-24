@@ -73,66 +73,114 @@
         links.classList.remove("open"); btn.setAttribute("aria-expanded", "false");
       }));
     }
-    if (profile) {
-      document.querySelectorAll("[data-name]").forEach((el) => (el.textContent = profile.name));
-      const y = $("#year"); if (y) y.textContent = new Date().getFullYear();
+    const y = $("#year"); if (y) y.textContent = new Date().getFullYear();
+    if (!profile) return;
+    document.querySelectorAll("[data-name]").forEach((el) => (el.textContent = profile.name));
+
+    // Optional photo behind the navy header band (set in the dashboard under About Me)
+    const heroImg = safeUrl(profile.heroImage);
+    if (heroImg) document.querySelectorAll("[data-hero]").forEach((h) => {
+      h.style.setProperty("--hero-img", `url("${heroImg.replace(/"/g, "%22")}")`); h.classList.add("has-img");
+    });
+
+    // Footer
+    const fa = $("#footer-about");
+    if (fa) fa.innerHTML = [profile.position, profile.department, profile.university].filter(Boolean).map(esc).join("<br>");
+    const fc = $("#footer-contact");
+    if (fc) {
+      const items = [];
+      if (profile.email) items.push(`<li><a href="mailto:${esc(profile.email)}">${esc(profile.email)}</a></li>`);
+      if (profile.location) items.push(`<li>${esc(profile.location)}</li>`);
+      for (const [k, label] of Object.entries(LINK_LABELS)) {
+        const u = safeUrl(profile.links && profile.links[k]);
+        if (u && k !== "cv") items.push(`<li><a href="${esc(u)}"${ext(u)}>${label}</a></li>`);
+      }
+      fc.innerHTML = items.join("");
     }
   }
 
   /* ---------- About ---------- */
-  function renderAbout(p) {
+  const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+
+  async function renderAbout(p) {
     const links = [];
-    if (p.email) links.push(`<a class="chip-link" href="mailto:${esc(p.email)}">${ICONS.email}${esc(p.email)}</a>`);
+    if (p.email) links.push(`<a class="chip-link" href="mailto:${esc(p.email)}">${ICONS.email}Email</a>`);
     for (const [k, label] of Object.entries(LINK_LABELS)) {
       const u = safeUrl(p.links && p.links[k]);
       if (u) links.push(`<a class="chip-link" href="${esc(u)}"${ext(u)}>${ICONS[k]}${label}</a>`);
     }
     const photo = safeUrl(p.photo);
-    const affil = [p.department, p.university, p.location].filter(Boolean).map(esc).join("<br>");
+    $("#about-hero").innerHTML = `
+      ${photo ? `<img class="hero-photo fade-in" src="${esc(photo)}" alt="Portrait of ${esc(p.name)}" width="168" height="168">` : ""}
+      <span class="eyebrow fade-in">${esc(p.university || "")}</span>
+      <h1 class="fade-in">${esc(p.name)}</h1>
+      ${p.position ? `<p class="lead fade-in">${esc(p.position)}</p>` : ""}
+      ${p.department || p.location ? `<div class="hero-affil fade-in">${[p.department, p.location].filter(Boolean).map(esc).join(" · ")}</div>` : ""}
+      ${links.length ? `<div class="hero-links fade-in">${links.join("")}</div>` : ""}`;
+
+    // Counts for the overview cards (each file is optional)
+    const load = (n) => getJSON(n).catch(() => []);
+    const [edu, exp, proj, pubs, awards, news] = await Promise.all(["education", "experience", "projects", "publications", "awards", "news"].map(load));
+    const latest = news.map((n) => n.date).filter(Boolean).sort().pop();
+    const cards = [
+      ["education.html", "Education", "Degrees and academic background", plural(edu.length, "degree", "degrees")],
+      ["experience.html", "Experience", "Research, teaching, service and leadership", plural(exp.length, "entry", "entries")],
+      ["research.html", "Research Projects", "Current and past research projects", plural(proj.length, "project", "projects")],
+      ["publications.html", "Publications", "Journal articles, conference papers and preprints", plural(pubs.length, "publication", "publications")],
+      ["awards.html", "Awards & Scholarships", "Honors, awards and scholarships", plural(awards.length, "award", "awards")],
+      ["news.html", "News & Updates", "Conferences, presentations and milestones", news.length ? `Latest: ${fmtDate(latest)}` : "Coming soon"],
+    ];
 
     $("#about").innerHTML = `
-      <section class="profile fade-in">
-        ${photo ? `<img class="profile-photo" src="${esc(photo)}" alt="Portrait of ${esc(p.name)}" width="240" height="240">` : ""}
-        <div>
-          <h1>${esc(p.name)}</h1>
-          <p class="role">${esc(p.position)}</p>
-          <p class="affil">${affil}</p>
-          ${links.length ? `<div class="profile-links">${links.join("")}</div>` : '<div style="height:22px"></div>'}
-          <div class="bio">${paragraphs(p.bio)}</div>
+      <section class="section">
+        <div class="wrap">
+          <div class="about-grid">
+            <div class="card fade-in">
+              <span class="card-label">About</span>
+              <div class="bio">${paragraphs(p.bio)}</div>
+            </div>
+            ${p.interests && p.interests.length ? `
+            <div class="card fade-in">
+              <span class="card-label">Research Interests</span>
+              <div class="tags">${p.interests.filter(Boolean).map((i) => `<span class="tag">${esc(i)}</span>`).join("")}</div>
+            </div>` : ""}
+          </div>
         </div>
       </section>
-      ${p.interests && p.interests.length ? `
-      <section class="block fade-in">
-        <h2>Research Interests</h2>
-        <div class="tags">${p.interests.filter(Boolean).map((i) => `<span class="tag">${esc(i)}</span>`).join("")}</div>
-      </section>` : ""}
-      ${p.sections && p.sections.length ? `
-      <section class="block fade-in">
-        <div class="cv-grid">
+      <section class="section">
+        <div class="wrap">
+          <div class="link-cards">
+            ${cards.map(([href, title, desc, count]) => `
+              <a class="card link-card fade-in" href="${href}">
+                <h3>${esc(title)}</h3>
+                <p>${esc(desc)}</p>
+                <div class="foot"><span class="count">${esc(count)}</span><span class="arrow-btn" aria-hidden="true">${ARROW}</span></div>
+              </a>`).join("")}
+          </div>
+        </div>
+      </section>
+      ${p.sections && p.sections.filter((s) => s.items && s.items.length).length ? `
+      <section class="section">
+        <div class="wrap cv-grid">
           ${p.sections.filter((s) => s.items && s.items.length).map((s) => `
-            <div class="cv-section">
+            <div class="card cv-section fade-in">
               <h2>${esc(s.heading)}</h2>
-              <ul class="cv-list">
-                ${s.items.map((it) => `
-                  <li>
-                    <div class="cv-title">${esc(it.title)}</div>
-                    ${it.org ? `<div class="cv-org">${esc(it.org)}</div>` : ""}
-                    ${it.period ? `<div class="cv-period">${esc(it.period)}</div>` : ""}
-                  </li>`).join("")}
+              <ul class="cv-list">${s.items.map((it) => `
+                <li><div class="cv-title">${esc(it.title)}</div>${it.org ? `<div class="cv-org">${esc(it.org)}</div>` : ""}${it.period ? `<div class="cv-period">${esc(it.period)}</div>` : ""}</li>`).join("")}
               </ul>
             </div>`).join("")}
         </div>
       </section>` : ""}`;
 
-    // Structured data for search engines
     const ld = {
       "@context": "https://schema.org", "@type": "Person", name: p.name, jobTitle: p.position,
       affiliation: { "@type": "CollegeOrUniversity", name: p.university },
       email: p.email ? `mailto:${p.email}` : undefined, image: photo ? new URL(photo, location.href).href : undefined,
       knowsAbout: p.interests, sameAs: Object.values(p.links || {}).filter((u) => /^https?:/.test(u || "")),
     };
-    const s = document.createElement("script"); s.type = "application/ld+json"; s.textContent = JSON.stringify(ld);
-    document.head.appendChild(s);
+    const sc = document.createElement("script"); sc.type = "application/ld+json"; sc.textContent = JSON.stringify(ld);
+    document.head.appendChild(sc);
   }
 
   /* ---------- Research ---------- */
@@ -143,7 +191,7 @@
       const link = safeUrl(p.link), img = safeUrl(p.image);
       const title = link ? `<a href="${esc(link)}"${ext(link)}>${esc(p.title)}</a>` : esc(p.title);
       return `
-        <article class="project fade-in${img ? " has-image" : ""}">
+        <article class="card project fade-in${img ? " has-image" : ""}">
           ${img ? `<img src="${esc(img)}" alt="" loading="lazy">` : ""}
           <div>
             ${p.label ? `<span class="project-label">${esc(p.label)}</span>` : ""}
@@ -334,7 +382,7 @@
     try {
       const profile = await getJSON("profile");
       initChrome(profile);
-      if (page === "about") renderAbout(profile);
+      if (page === "about") await renderAbout(profile);
       if (page === "research") renderProjects(await getJSON("projects"));
       if (page === "education") renderEntries(await getJSON("education"), "Education will appear here.");
       if (page === "experience") renderEntries(await getJSON("experience"), "Experience will appear here.");
