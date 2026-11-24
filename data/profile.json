@@ -1,6 +1,6 @@
 {
   "name": "Md Omor Faruk",
-  "position": "Ph.D. Student & Graduate Research Assistant",
+  "position": "Ph.D. Candidate",
   "department": "Department of Electrical Engineering and Computer Science",
   "university": "University of Wyoming",
   "location": "Laramie, WY, USA",
@@ -8,21 +8,18 @@
   "photo": "images/profile.jpg",
   "bio": "I am a Ph.D. student and Graduate Research Assistant in the Department of Electrical Engineering and Computer Science at the University of Wyoming, where I began my doctoral studies in Fall 2023.\n\nMy research goal is to develop an intelligent framework for Controlled Environment Agriculture (CEA) that enables autonomous optimization of environmental parameters through the integration of Generative Artificial Intelligence, Computer Vision, and Reinforcement Learning.\n\nI received my M.Eng. and B.Sc. Eng. degrees in Applied Physics & Electronic Engineering from the University of Rajshahi, Bangladesh, where I worked as a Research Assistant in the Wireless Communication Research Group from 2017 to 2023.",
   "interests": [
-    "Controlled Environment Agriculture",
-    "Digital Twins",
     "Generative Artificial Intelligence",
     "Computer Vision",
-    "3D Point Cloud Generation",
-    "Plant Phenotyping",
     "Reinforcement Learning",
-    "Wireless Communication & Physical Layer Security"
+    "Multi-Agent System",
+    "Wireless Communication"
   ],
   "links": {
-    "googleScholar": "",
+    "googleScholar": "https://scholar.google.com/citations?user=aOR1bMsAAAAJ&hl=en",
     "orcid": "",
-    "linkedin": "",
+    "linkedin": "https://www.linkedin.com/in/engromorfaruk/",
     "github": "",
-    "researchgate": "",
+    "researchgate": "https://www.researchgate.net/profile/Md-Faruk-16?ev=hdr_xprf",
     "cv": ""
   },
   "authorHighlight": [
@@ -36,58 +33,171 @@
     {
       "heading": "Education",
       "items": [
-        { "title": "Ph.D. in Electrical Engineering and Computer Science", "org": "University of Wyoming, Laramie, WY, USA", "period": "Fall 2023 – Present" },
-        { "title": "M.Eng. in Applied Physics & Electronic Engineering", "org": "University of Rajshahi, Bangladesh · CGPA 3.33/4.00", "period": "November 2017" },
-        { "title": "B.Sc. Eng. in Applied Physics & Electronic Engineering", "org": "University of Rajshahi, Bangladesh · CGPA 3.29/4.00", "period": "October 2015" }
+        {
+          "title": "Ph.D. in Electrical Engineering and Computer Science",
+          "org": "University of Wyoming, Laramie, WY, USA",
+          "period": "Fall 2023 – Present"
+        },
+        {
+          "title": "M.Eng. in Electrical Engineering",
+          "org": "University of Wyoming",
+          "period": "Fall 2026"
+        },
+        {
+          "title": "M.Eng. in Applied Physics & Electronic Engineering",
+          "org": "University of Rajshahi, Bangladesh · CGPA 3.33/4.00",
+          "period": "November 2017"
+        },
+        {
+          "title": "B.Sc. Eng. in Applied Physics & Electronic Engineering",
+          "org": "University of Rajshahi, Bangladesh · CGPA 3.29/4.00",
+          "period": "October 2015"
+        }
       ]
     },
     {
       "heading": "Experience",
       "items": [
-        { "title": "Graduate Research Assistant", "org": "Dept. of Electrical Engineering and Computer Science, University of Wyoming", "period": "Fall 2023 – Fall 2024, Summer 2025 – Present" },
-        { "title": "Instructor, Research Experience for Undergraduates (REU)", "org": "Center for Controlled Environment Agriculture, University of Wyoming", "period": "Summer 2025" },
-        { "title": "Graduate Teaching Assistant and Grader", "org": "Dept. of Electrical Engineering and Computer Science, University of Wyoming", "period": "Spring 2025" },
-        { "title": "Research Assistant", "org": "Wireless Communication Research Group, Dept. of Electrical and Electronic Engineering, University of Rajshahi", "period": "Jan 2017 – July 2023" },
-        { "title": "Business Analyst", "org": "Kazi IT Center Ltd, Rajshahi, Bangladesh", "period": "July 2017 – May 2019" }
+        {
+          "title": "Graduate Research Assistant",
+          "org": "Dept. of Electrical Engineering and Computer Science, University of Wyoming",
+          "period": "Fall 2023 – Fall 2024, Summer 2025 – Present"
+        },
+        {
+          "title": "Instructor, Research Experience for Undergraduates (REU)",
+          "org": "Center for Controlled Environment Agriculture, University of Wyoming",
+          "period": "Summer 2025"
+        },
+        {
+          "title": "Graduate Teaching Assistant and Grader",
+          "org": "Dept. of Electrical Engineering and Computer Science, University of Wyoming",
+          "period": "Spring 2025"
+        },
+        {
+          "title": "Research Assistant",
+          "org": "Wireless Communication Research Group, Dept. of Electrical and Electronic Engineering, University of Rajshahi",
+          "period": "Jan 2017 – July 2023"
+        },
+        {
+          "title": "Business Analyst",
+          "org": "Kazi IT Center Ltd, Rajshahi, Bangladesh",
+          "period": "July 2017 – May 2019"
+        }
       ]
     },
     {
       "heading": "Awards & Scholarships",
       "items": [
-        { "title": "Helen Bishop Dunnewald Memorial Scholarship for International Studies", "org": "University of Wyoming", "period": "2026–2027" },
-        { "title": "ASUW Leadership Scholarship", "org": "University of Wyoming", "period": "2025–2026" },
-        { "title": "International Student Scholarships", "org": "University of Wyoming", "period": "2025–2026" },
-        { "title": "GPA 5 Talent Award", "org": "Lahiri Student Welfare Organization, Thakurgaon, Bangladesh", "period": "2009" }
+        {
+          "title": "Helen Bishop Dunnewald Memorial Scholarship for International Studies",
+          "org": "University of Wyoming",
+          "period": "2026–2027"
+        },
+        {
+          "title": "ASUW Leadership Scholarship",
+          "org": "University of Wyoming",
+          "period": "2025–2026"
+        },
+        {
+          "title": "International Student Scholarships",
+          "org": "University of Wyoming",
+          "period": "2025–2026"
+        },
+        {
+          "title": "GPA 5 Talent Award",
+          "org": "Lahiri Student Welfare Organization, Thakurgaon, Bangladesh",
+          "period": "2009"
+        }
       ]
     },
     {
       "heading": "Academic Service",
       "items": [
-        { "title": "Program Committee Member", "org": "41st Annual AAAI Conference on Artificial Intelligence, Montreal, Canada", "period": "2027" },
-        { "title": "Reviewer", "org": "40th Annual AAAI Conference on Artificial Intelligence, Singapore", "period": "2026" },
-        { "title": "Reviewer", "org": "IEEE International Conference on Robotics and Automation (ICRA), Vienna, Austria", "period": "2026" },
-        { "title": "Reviewer", "org": "Computers and Electronics in Agriculture", "period": "" },
-        { "title": "Reviewer", "org": "International Journal of Communication Systems, John Wiley and Sons Ltd", "period": "" }
+        {
+          "title": "Program Committee Member",
+          "org": "41st Annual AAAI Conference on Artificial Intelligence, Montreal, Canada",
+          "period": "2027"
+        },
+        {
+          "title": "Reviewer",
+          "org": "40th Annual AAAI Conference on Artificial Intelligence, Singapore",
+          "period": "2026"
+        },
+        {
+          "title": "Reviewer",
+          "org": "IEEE International Conference on Robotics and Automation (ICRA), Vienna, Austria",
+          "period": "2026"
+        },
+        {
+          "title": "Reviewer",
+          "org": "Computers and Electronics in Agriculture",
+          "period": ""
+        },
+        {
+          "title": "Reviewer",
+          "org": "International Journal of Communication Systems, John Wiley and Sons Ltd",
+          "period": ""
+        }
       ]
     },
     {
       "heading": "Leadership",
       "items": [
-        { "title": "Former President", "org": "International Student Association (ISA), University of Wyoming", "period": "May 2024 – May 2025" },
-        { "title": "Member", "org": "Muslim Student Association (MSA), University of Wyoming", "period": "Aug 2025 – Present" },
-        { "title": "Member", "org": "Bangladesh Student Association (BSA), University of Wyoming", "period": "Aug 2023 – Present" },
-        { "title": "Former President", "org": "Thakurgaon District Student Association (TZS), University of Rajshahi", "period": "2014 – 2016" },
-        { "title": "Former General Secretary", "org": "Lahiri Student Welfare Association (LSKP), Thakurgaon, Bangladesh", "period": "2013 – 2014" },
-        { "title": "Former Organizing Secretary", "org": "Rajshahi University Career Club, University of Rajshahi", "period": "May 2013 – June 2014" }
+        {
+          "title": "Former President",
+          "org": "International Student Association (ISA), University of Wyoming",
+          "period": "May 2024 – May 2025"
+        },
+        {
+          "title": "Member",
+          "org": "Muslim Student Association (MSA), University of Wyoming",
+          "period": "Aug 2025 – Present"
+        },
+        {
+          "title": "Member",
+          "org": "Bangladesh Student Association (BSA), University of Wyoming",
+          "period": "Aug 2023 – Present"
+        },
+        {
+          "title": "Former President",
+          "org": "Thakurgaon District Student Association (TZS), University of Rajshahi",
+          "period": "2014 – 2016"
+        },
+        {
+          "title": "Former General Secretary",
+          "org": "Lahiri Student Welfare Association (LSKP), Thakurgaon, Bangladesh",
+          "period": "2013 – 2014"
+        },
+        {
+          "title": "Former Organizing Secretary",
+          "org": "Rajshahi University Career Club, University of Rajshahi",
+          "period": "May 2013 – June 2014"
+        }
       ]
     },
     {
       "heading": "Professional Memberships",
       "items": [
-        { "title": "Member", "org": "IEEE (Institute of Electrical and Electronics Engineers)", "period": "" },
-        { "title": "Member", "org": "IEEE Student Chapter, University of Wyoming", "period": "" },
-        { "title": "Member", "org": "ACM Student Chapter, University of Wyoming", "period": "" },
-        { "title": "Member", "org": "Engineering Without Borders, University of Wyoming", "period": "" }
+        {
+          "title": "Member",
+          "org": "IEEE (Institute of Electrical and Electronics Engineers)",
+          "period": ""
+        },
+        {
+          "title": "Member",
+          "org": "IEEE Student Chapter, University of Wyoming",
+          "period": ""
+        },
+        {
+          "title": "Member",
+          "org": "ACM Student Chapter, University of Wyoming",
+          "period": ""
+        },
+        {
+          "title": "Member",
+          "org": "Engineering Without Borders, University of Wyoming",
+          "period": ""
+        }
       ]
     }
   ]
