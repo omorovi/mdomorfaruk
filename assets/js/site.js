@@ -57,32 +57,6 @@
   };
   const LINK_LABELS = { googleScholar: "Google Scholar", orcid: "ORCID", linkedin: "LinkedIn", github: "GitHub", researchgate: "ResearchGate", cv: "Download CV" };
 
-  /* ---------- Header photo slideshow: crossfade with a slow zoom ---------- */
-  function heroSlideshow(photos, hero) {
-    const box = document.createElement("div");
-    box.className = "hero-slides"; box.setAttribute("aria-hidden", "true");
-    // start on a different photo per page so the site feels varied
-    let i = Math.floor(Math.random() * photos.length);
-    const slides = photos.map((src) => {
-      const d = document.createElement("div");
-      d.className = "hero-slide"; d.style.backgroundImage = `url("${src.replace(/"/g, "%22")}")`;
-      box.appendChild(d); return d;
-    });
-    hero.insertBefore(box, hero.firstChild); hero.classList.add("has-slides");
-    const show = (k) => {
-      slides.forEach((sl) => sl.classList.remove("active"));
-      void slides[k].offsetWidth; // restart the zoom animation
-      slides[k].classList.add("active");
-    };
-    const first = new Image();
-    first.onload = first.onerror = () => show(i);
-    first.src = photos[i];
-    const reduced = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (photos.length > 1 && !reduced) {
-      setInterval(() => { if (!document.hidden) { i = (i + 1) % photos.length; show(i); } }, 6000);
-    }
-  }
-
   /* ---------- Shared chrome ---------- */
   function initChrome(profile) {
     const page = document.body.dataset.page;
@@ -103,10 +77,11 @@
     if (!profile) return;
     document.querySelectorAll("[data-name]").forEach((el) => (el.textContent = profile.name));
 
-    // Background photo slideshow in the header band (photos added in the dashboard under About Me)
-    const photos = (profile.heroImages || []).map((im) => safeUrl(im && im.src)).filter(Boolean);
-    if (!photos.length && safeUrl(profile.heroImage)) photos.push(safeUrl(profile.heroImage));
-    if (photos.length) document.querySelectorAll("[data-hero]").forEach(heroSlideshow.bind(null, photos));
+    // Optional photo behind the navy header band (set in the dashboard under About Me)
+    const heroImg = safeUrl(profile.heroImage);
+    if (heroImg) document.querySelectorAll("[data-hero]").forEach((h) => {
+      h.style.setProperty("--hero-img", `url("${heroImg.replace(/"/g, "%22")}")`); h.classList.add("has-img");
+    });
 
     // Footer
     const fa = $("#footer-about");
