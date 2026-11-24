@@ -103,7 +103,7 @@ p { margin: 0 0 1em; }
 .hero.has-img { --hero-blur: 6px; }
 .hero::after {
   content: ""; position: absolute; inset: 0; z-index: -1;
-  background: url("../img/hero-tech.svg?v=3") center / cover no-repeat, linear-gradient(180deg, var(--shade-top), var(--shade-bottom));
+  background: linear-gradient(180deg, var(--shade-top), var(--shade-bottom));
 }
 .hero .eyebrow { display: block; font-size: .78rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--sky); margin-bottom: 16px; }
 .hero h1 { color: #fff; font-size: clamp(2.4rem, 5.6vw, 4.4rem); letter-spacing: -.02em; line-height: 1.05; }
@@ -334,5 +334,4 @@ a.pub-title:hover { color: var(--accent); }
   .lightbox { padding: 56px 12px; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .brand-tag { display: none; }
-  .hero::after { background-position: center, center; opacity: .85; }
 }
