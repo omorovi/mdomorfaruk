@@ -1,0 +1,233 @@
+[
+  {
+    "type": "conference",
+    "status": "Accepted",
+    "authors": "Md Omor Faruk, Md Mahbubur Rahman, Ali Torabi, and Yaqoob Majeed",
+    "title": "HSP-GAN: Cross-Scale Attention-Enhanced Hierarchical Sphere-Guided Generative AI Framework for High-Fidelity 3D Point Cloud Synthesis",
+    "venue": "The 2026 IEEE International Conference on Artificial Intelligence Applications and Innovations (AI²)",
+    "details": "University of North Dakota, USA",
+    "year": "2026",
+    "doi": "",
+    "url": ""
+  },
+  {
+    "type": "conference",
+    "status": "Accepted",
+    "authors": "Md Omor Faruk, Md Mahbubur Rahman, Ali Torabi, and Yaqoob Majeed",
+    "title": "Adaptive Sphere-Guided 3D Generative Adversarial Network for Modeling Complex Plant Geometries in Precision Agriculture",
+    "venue": "The 2026 ASABE Annual International Meeting (AIM)",
+    "details": "Indiana, USA",
+    "year": "2026",
+    "doi": "",
+    "url": ""
+  },
+  {
+    "type": "manuscript",
+    "status": "Under Review",
+    "authors": "Md Omor Faruk, Md Mahbubur Rahman, Ali Torabi, and Yaqoob Majeed",
+    "title": "Adaptive Correspondence Learning for Multi-View Fusion of 3D Gaussian Reconstructions for Non-Invasive Strawberry Plant Phenotyping",
+    "venue": "Computers and Electronics in Agriculture",
+    "details": "",
+    "year": "2026",
+    "doi": "",
+    "url": ""
+  },
+  {
+    "type": "manuscript",
+    "status": "Under Review",
+    "authors": "M. O. Faruk, M. M. Rahman, A. Torabi, and Y. Majeed",
+    "title": "Physics Inspired SP-GAN: Physics Inspired Sphere Guided Generative Adversarial Network for 3D Point Cloud Generation",
+    "venue": "Submitted to IEEE Transactions on Visualization and Computer Graphics",
+    "details": "",
+    "year": "2026",
+    "doi": "",
+    "url": ""
+  },
+  {
+    "type": "manuscript",
+    "status": "Under Review",
+    "authors": "Md Omor Faruk, Md Mahbubur Rahman, Ali Torabi, and Yaqoob Majeed",
+    "title": "PhytoSplat: Physics-Regularized Diffusion-Guided Gaussian Splatting for Biologically Consistent 4D Plant Growth Modeling",
+    "venue": "IEEE Transactions on AgriFood Electronics",
+    "details": "",
+    "year": "2026",
+    "doi": "",
+    "url": ""
+  },
+  {
+    "type": "journal",
+    "status": "Published",
+    "authors": "Rahman, Md Mahbubur, Ali Torabi, Sanjog Gaihre, Md Omor Faruk, and Yaqoob Majeed",
+    "title": "Trait-Adaptive Hierarchical Attention Fusion of RGB-D data for automated lettuce phenotyping in hydroponic systems",
+    "venue": "Computers and Electronics in Agriculture",
+    "details": "vol. 252, 112101",
+    "year": "2026",
+    "doi": "",
+    "url": ""
+  },
+  {
+    "type": "journal",
+    "status": "Published",
+    "authors": "Biswas, Jahanur, Md Nahid Hasan, Md Muksit Ul Islam, Md Mahbubur Rahman, Ali Torabi, Sanjog Gaihre, Md Omor Faruk, and Yaqoob Majeed",
+    "title": "Performance-optimized Alzheimer’s detection using machine learning with SMOTE and randomized hyperparameter tuning",
+    "venue": "Discover Artificial Intelligence",
+    "details": "",
+    "year": "2026",
+    "doi": "10.1007/s44163-025-00758-z",
+    "url": ""
+  },
+  {
+    "type": "conference",
+    "status": "Published",
+    "authors": "N. Tasnim, M. O. Faruk and Z. Zhou",
+    "title": "Optimal Dual-Role Attack and Defense for Power Grid Security: A Decision Transformer Approach",
+    "venue": "2025 57th North American Power Symposium (NAPS)",
+    "details": "Storrs, CT, USA, pp. 1-6",
+    "year": "2025",
+    "doi": "10.1109/NAPS66256.2025.11272432",
+    "url": ""
+  },
+  {
+    "type": "journal",
+    "status": "Published",
+    "authors": "Sumona, Rabeya Bashri, John Pritom Biswas, Ahmed Shafkat, Md Mahbubur Rahman, Md Omor Faruk, and Yaqoob Majeed",
+    "title": "An integrated deep learning approach for enhancing brain tumor diagnosis",
+    "venue": "Healthcare Analytics",
+    "details": "100421",
+    "year": "2025",
+    "doi": "10.1016/j.health.2025.100421",
+    "url": ""
+  },
+  {
+    "type": "journal",
+    "status": "Published",
+    "authors": "Faruk, Md Omor, Saifur Rahman Sabuj, SK Tamanna Kamal, Fowzia Jabin, Joarder Jafor Sadique, and Shaikh Enayet Ullah",
+    "title": "Multi-user non-orthogonal waveform transceiver in RIS-assisted UAV communication: design and implementation",
+    "venue": "International Journal of Vehicle Information and Communication Systems",
+    "details": "vol. 10, no. 1, pp. 85-111",
+    "year": "2025",
+    "doi": "10.1504/IJVICS.2025.144103",
+    "url": ""
+  },
+  {
+    "type": "preprint",
+    "status": "Preprint",
+    "authors": "Uddin, Mohammad Irfan, Nishad Tasnim, Md Omor Faruk, and Zejian Zhou",
+    "title": "Energy-Efficient Deep Reinforcement Learning with Spiking Transformers",
+    "venue": "arXiv preprint",
+    "details": "arXiv:2505.14533",
+    "year": "2025",
+    "doi": "10.48550/arXiv.2505.14533",
+    "url": ""
+  },
+  {
+    "type": "conference",
+    "status": "Published",
+    "authors": "Tasnim, Nishad, Md Omor Faruk, and Zejian Zhou",
+    "title": "Optimal Dynamic Load Altering Attack on Power Grids via Electrical Vehicle Charging Stations",
+    "venue": "2024 Cyber Awareness and Research Symposium (CARS)",
+    "details": "pp. 1-6, IEEE",
+    "year": "2024",
+    "doi": "10.1109/CARS61786.2024.10778813",
+    "url": ""
+  },
+  {
+    "type": "preprint",
+    "status": "Preprint",
+    "authors": "Faruk, Md Omor, Md Najmul Hossain, Shaikh Enayet Ullah, SK Tamanna Kamal, and Fowzia Jabin",
+    "title": "Transceiver Design for 6G Compatible CP-less Multi-User Orthogonal Chirp Division Multiplexing System with Physical Layer Security",
+    "venue": "Authorea Preprints",
+    "details": "",
+    "year": "2023",
+    "doi": "10.36227/techrxiv.22214362.v1",
+    "url": ""
+  },
+  {
+    "type": "journal",
+    "status": "Published",
+    "authors": "Omor Faruk, Md, Joarder Jafor Sadique, Kanapathippillai Cumanan, and Shaikh Enayet Ullah",
+    "title": "Orthogonal variable spreading factor encoded unmanned aerial vehicle‐assisted nonorthogonal multiple access system with hybrid physical layer security",
+    "venue": "ETRI Journal",
+    "details": "vol. 45, no. 2, pp. 213-225",
+    "year": "2023",
+    "doi": "10.4218/etrij.2021-0292",
+    "url": ""
+  },
+  {
+    "type": "journal",
+    "status": "Published",
+    "authors": "Faruk, Md Omor, Jinia Rahman, and Shaikh Enayet Ullah",
+    "title": "Performance analysis of downlink multiuser CP-free MIMO OFDM system with interference cancellation and enhancement of physical-layer security",
+    "venue": "European Journal of Computer Science and Information Technology",
+    "details": "vol. 7, no. 3, pp. 26-40",
+    "year": "2019",
+    "doi": "",
+    "url": "https://www.researchgate.net/publication/334317414"
+  },
+  {
+    "type": "journal",
+    "status": "Published",
+    "authors": "Naher, Mst Afrin, Md Omor Faruk, Md Mahbubur Rahman, and Shaikh Enayet Ullah",
+    "title": "Performance Evaluation of Encrypted Text Message Transmission in 5G Compatible Frequency-domain Subband Superposed Scheme Implemented MIMO OFDM Wireless Communication System",
+    "venue": "Global Journal of Computer Science and Technology",
+    "details": "",
+    "year": "2019",
+    "doi": "",
+    "url": "https://scispace.com/pdf/performance-evaluation-of-encrypted-text-message-m2ijcn7v01.pdf"
+  },
+  {
+    "type": "journal",
+    "status": "Published",
+    "authors": "Datta, Srabanti, and Md Omor Faruk",
+    "title": "Design & performance evaluation of a dipole antenna using various lengths of antenna material",
+    "venue": "International Journal of Scientific & Engineering Research",
+    "details": "vol. 10, no. 1",
+    "year": "",
+    "doi": "",
+    "url": "https://www.researchgate.net/publication/331194354"
+  },
+  {
+    "type": "journal",
+    "status": "Published",
+    "authors": "Datta, Srabanti, and Md Omor Faruk",
+    "title": "Impact of permittivity and radiation pattern on the performance of a dipole antenna",
+    "venue": "Intern. J. Progres. Sci. Technol",
+    "details": "vol. 17, no. 1, pp. 191-196",
+    "year": "2019",
+    "doi": "",
+    "url": "https://ijpsat.org/index.php/ijpsat/article/view/1377"
+  },
+  {
+    "type": "journal",
+    "status": "Published",
+    "authors": "Faruk, Md. Omor, and Shaikh Enayet Ullah",
+    "title": "Encrypted Color Image Transmission in LQ-Based GSIC Pre-Coded Multiuser Downlink Wireless Communication System",
+    "venue": "International Journal of Advances in Image and Video Processing, Society for Science and Education",
+    "details": "vol. 7, no. 4, pp. 6–15",
+    "year": "2019",
+    "doi": "",
+    "url": "https://www.researchgate.net/publication/335841104_Encrypted_Color_Image_Transmission_in_LQ-based_GSIC_Pre-coded_Multiuser_Downlink_Wireless_Communication_System"
+  },
+  {
+    "type": "preprint",
+    "status": "",
+    "authors": "Faruk, Md Omor, and Shaikh Enayet Ullah",
+    "title": "Performance Evaluation of Encrypted Text Message Transmission in 5G Compatible Orthogonal Multi-level Chaos Shift Keying Modulation Scheme Aided MIMO Wireless Communication System",
+    "venue": "",
+    "details": "",
+    "year": "2018",
+    "doi": "",
+    "url": "https://www.researchgate.net/publication/330180334"
+  },
+  {
+    "type": "journal",
+    "status": "Published",
+    "authors": "Faruk, Md Omor, and Shaikh Enayet Ullah",
+    "title": "Performance evaluation of orthogonal multi-level chaos shift keying modulation scheme aided MIMO wireless communication system",
+    "venue": "International Journal of Networks and Communications",
+    "details": "vol. 8, no. 1, pp. 10-17",
+    "year": "2018",
+    "doi": "",
+    "url": "http://article.sapub.org/10.5923.j.ijnc.20180801.02.html"
+  }
+]
