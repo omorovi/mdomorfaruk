@@ -74,6 +74,12 @@
       }));
     }
     const y = $("#year"); if (y) y.textContent = new Date().getFullYear();
+    // Menu bar: see-through over the blue header, solid gray once the page scrolls past it
+    const header = $(".site-header"), hero = $("[data-hero]");
+    if (header) {
+      const onScroll = () => header.classList.toggle("scrolled", window.scrollY > (hero ? hero.offsetHeight - header.offsetHeight - 10 : 40));
+      window.addEventListener("scroll", onScroll, { passive: true }); window.addEventListener("resize", onScroll); onScroll();
+    }
     if (!profile) return;
     document.querySelectorAll("[data-name]").forEach((el) => (el.textContent = profile.name));
 
