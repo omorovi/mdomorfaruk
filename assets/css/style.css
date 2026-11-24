@@ -368,3 +368,13 @@ a.pub-title:hover { color: var(--accent); }
   .nav-links a { border-bottom-color: #eef1f5; }
   .nav-links a[aria-current="page"] { color: var(--accent); border-bottom-color: #eef1f5; }
 }
+
+/* ===== Compact footer ===== */
+.site-footer { padding: 34px 0 16px; font-size: .9rem; }
+.footer-grid { gap: 36px; align-items: start; }
+.footer-name { font-size: 1.1rem; margin-bottom: 6px; }
+#footer-about { margin: 0; line-height: 1.55; }
+.site-footer h3 { font-size: .92rem; margin-bottom: 8px; }
+.site-footer ul { display: grid; grid-template-columns: repeat(2, max-content); column-gap: 28px; row-gap: 4px; }
+.footer-bottom { margin-top: 22px; padding-top: 12px; font-size: .8rem; }
+@media (max-width: 640px) { .footer-grid { gap: 24px; } }
