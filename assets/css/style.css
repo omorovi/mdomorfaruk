@@ -36,7 +36,7 @@
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; font-family: var(--sans); font-size: 16px; line-height: 1.65; color: var(--ink-2);
-  background: #fff url("../img/circuit-pattern.svg") 0 0 / 640px 480px repeat fixed;
+  background: #fff url("../img/circuit-pattern.svg?v=2") 0 0 / 640px 480px repeat fixed;
   -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; display: block; }
@@ -99,7 +99,7 @@ p { margin: 0 0 1em; }
 .hero.has-img { --hero-blur: 6px; }
 .hero::after {
   content: ""; position: absolute; inset: 0; z-index: -1;
-  background: url("../img/hero-tech.svg") center / cover no-repeat, linear-gradient(180deg, var(--shade-top), var(--shade-bottom));
+  background: url("../img/hero-tech.svg?v=2") center / cover no-repeat, linear-gradient(180deg, var(--shade-top), var(--shade-bottom));
 }
 .hero .eyebrow { display: block; font-size: .78rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--sky); margin-bottom: 16px; }
 .hero h1 { color: #fff; font-size: clamp(2.4rem, 5.6vw, 4.4rem); letter-spacing: -.02em; line-height: 1.05; }
