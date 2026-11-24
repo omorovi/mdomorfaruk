@@ -1,7 +1,7 @@
 # Md Omor Faruk — Academic Portfolio
 
-**Live site:** https://omorovi.github.io/mdomorfaruk.github.io/  
-**Admin dashboard:** https://omorovi.github.io/mdomorfaruk.github.io/admin/
+**Live site:** https://omorovi.github.io/mdomorfaruk/  
+**Admin dashboard:** https://omorovi.github.io/mdomorfaruk/admin/
 
 A personal academic website for GitHub Pages, with a password-protected admin dashboard
 for updating content without editing code.
