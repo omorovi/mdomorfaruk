@@ -3,30 +3,140 @@
     "title": "Graduate Research Assistant",
     "org": "Dept. of Electrical Engineering and Computer Science, University of Wyoming",
     "period": "Fall 2023 – Fall 2024, Summer 2025 – Present",
-    "description": ""
+    "description": "",
+    "section": "Professional Experience"
   },
   {
     "title": "Instructor, Research Experience for Undergraduates (REU)",
     "org": "Center for Controlled Environment Agriculture, University of Wyoming",
     "period": "Summer 2025",
-    "description": ""
+    "description": "",
+    "section": "Professional Experience"
   },
   {
     "title": "Graduate Teaching Assistant and Grader",
     "org": "Dept. of Electrical Engineering and Computer Science, University of Wyoming",
     "period": "Spring 2025",
-    "description": ""
+    "description": "",
+    "section": "Professional Experience"
   },
   {
     "title": "Research Assistant",
     "org": "Wireless Communication Research Group, Dept. of Electrical and Electronic Engineering, University of Rajshahi",
     "period": "Jan 2017 – July 2023",
-    "description": ""
+    "description": "",
+    "section": "Professional Experience"
   },
   {
     "title": "Business Analyst",
     "org": "Kazi IT Center Ltd, Rajshahi, Bangladesh",
     "period": "July 2017 – May 2019",
+    "description": "",
+    "section": "Professional Experience"
+  },
+  {
+    "section": "Academic Service",
+    "title": "Program Committee Member",
+    "org": "41st Annual AAAI Conference on Artificial Intelligence, Montreal, Canada",
+    "period": "2027",
+    "description": ""
+  },
+  {
+    "section": "Academic Service",
+    "title": "Reviewer",
+    "org": "40th Annual AAAI Conference on Artificial Intelligence, Singapore",
+    "period": "2026",
+    "description": ""
+  },
+  {
+    "section": "Academic Service",
+    "title": "Reviewer",
+    "org": "IEEE International Conference on Robotics and Automation (ICRA), Vienna, Austria",
+    "period": "2026",
+    "description": ""
+  },
+  {
+    "section": "Academic Service",
+    "title": "Reviewer",
+    "org": "Computers and Electronics in Agriculture",
+    "period": "",
+    "description": ""
+  },
+  {
+    "section": "Academic Service",
+    "title": "Reviewer",
+    "org": "International Journal of Communication Systems, John Wiley and Sons Ltd",
+    "period": "",
+    "description": ""
+  },
+  {
+    "section": "Leadership",
+    "title": "Former President",
+    "org": "International Student Association (ISA), University of Wyoming",
+    "period": "May 2024 – May 2025",
+    "description": ""
+  },
+  {
+    "section": "Leadership",
+    "title": "Member",
+    "org": "Muslim Student Association (MSA), University of Wyoming",
+    "period": "Aug 2025 – Present",
+    "description": ""
+  },
+  {
+    "section": "Leadership",
+    "title": "Member",
+    "org": "Bangladesh Student Association (BSA), University of Wyoming",
+    "period": "Aug 2023 – Present",
+    "description": ""
+  },
+  {
+    "section": "Leadership",
+    "title": "Former President",
+    "org": "Thakurgaon District Student Association (TZS), University of Rajshahi",
+    "period": "2014 – 2016",
+    "description": ""
+  },
+  {
+    "section": "Leadership",
+    "title": "Former General Secretary",
+    "org": "Lahiri Student Welfare Association (LSKP), Thakurgaon, Bangladesh",
+    "period": "2013 – 2014",
+    "description": ""
+  },
+  {
+    "section": "Leadership",
+    "title": "Former Organizing Secretary",
+    "org": "Rajshahi University Career Club, University of Rajshahi",
+    "period": "May 2013 – June 2014",
+    "description": ""
+  },
+  {
+    "section": "Professional Memberships",
+    "title": "Member",
+    "org": "IEEE (Institute of Electrical and Electronics Engineers)",
+    "period": "",
+    "description": ""
+  },
+  {
+    "section": "Professional Memberships",
+    "title": "Member",
+    "org": "IEEE Student Chapter, University of Wyoming",
+    "period": "",
+    "description": ""
+  },
+  {
+    "section": "Professional Memberships",
+    "title": "Member",
+    "org": "ACM Student Chapter, University of Wyoming",
+    "period": "",
+    "description": ""
+  },
+  {
+    "section": "Professional Memberships",
+    "title": "Member",
+    "org": "Engineering Without Borders, University of Wyoming",
+    "period": "",
     "description": ""
   }
 ]

@@ -160,19 +160,36 @@
     const el = $("#entries");
     list = (list || []).filter((it) => it && (it.title || it.org));
     if (!list.length) { el.innerHTML = `<div class="empty">${esc(emptyText)}</div>`; return; }
-    el.innerHTML = `<ol class="entries">${list.map((it) => {
+    const entry = (it, tag) => {
       const link = safeUrl(it.link);
       const title = link ? `<a href="${esc(link)}"${ext(link)}>${esc(it.title)}</a>` : esc(it.title);
       return `
         <li class="entry fade-in">
           <div class="entry-period">${esc(it.period)}</div>
           <div class="entry-body">
-            <h2>${title}</h2>
+            <${tag}>${title}</${tag}>
             ${it.org ? `<div class="entry-org">${esc(it.org)}</div>` : ""}
             ${it.description ? `<div class="entry-desc">${paragraphs(it.description)}</div>` : ""}
           </div>
         </li>`;
-    }).join("")}</ol>`;
+    };
+    // Entries with a "section" are grouped under headings, in order of first appearance.
+    const groups = [];
+    list.forEach((it) => {
+      const name = (it.section || "").trim();
+      let g = groups.find((x) => x.name === name);
+      if (!g) groups.push((g = { name, items: [] }));
+      g.items.push(it);
+    });
+    if (groups.length === 1 && !groups[0].name) {
+      el.innerHTML = `<ol class="entries">${list.map((it) => entry(it, "h2")).join("")}</ol>`;
+      return;
+    }
+    el.innerHTML = groups.map((g) => `
+      <section class="entry-group">
+        ${g.name ? `<h2 class="entry-group-title fade-in">${esc(g.name)}</h2>` : ""}
+        <ol class="entries">${g.items.map((it) => entry(it, "h3")).join("")}</ol>
+      </section>`).join("");
   }
 
   /* ---------- Publications ---------- */

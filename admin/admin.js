@@ -194,12 +194,18 @@
       ],
     },
     experience: {
-      file: "experience", title: "Experience", noun: "position", reorderable: true,
-      intro: "Entries are shown in this order — use the arrows to reorder.",
-      blank: () => ({ title: "", org: "", period: "", description: "" }),
+      file: "experience", title: "Experience", noun: "entry", reorderable: true,
+      intro: "Entries are grouped by section (e.g. Professional Experience, Academic Service, Leadership). Use the arrows to reorder within a section; sections appear in the order of their first entry.",
+      blank: () => ({ section: "Professional Experience", title: "", org: "", period: "", description: "" }),
+      groupBy: (it) => (it.section || "").trim() || "Other",
+      order: (list) => {
+        const names = []; list.forEach((it) => { const n = (it.section || "").trim() || "Other"; if (!names.includes(n)) names.push(n); });
+        return list.map((_, i) => i).sort((a, b) => names.indexOf((list[a].section || "").trim() || "Other") - names.indexOf((list[b].section || "").trim() || "Other") || a - b);
+      },
       summary: (it) => ({ t: it.title || "(untitled)", m: [it.org, it.period].filter(Boolean).join(" · ") }),
       fields: [
-        { key: "title", label: "Position", type: "text", required: true, wide: true, placeholder: "e.g. Graduate Research Assistant" },
+        { key: "section", label: "Section", type: "text", required: true, wide: true, suggestions: () => [...new Set(["Professional Experience", "Academic Service", "Leadership", "Professional Memberships", ...((S.files.experience && S.files.experience.data) || []).map((e) => e.section).filter(Boolean)])], help: "Pick an existing section or type a new one to create it." },
+        { key: "title", label: "Role / position", type: "text", required: true, wide: true, placeholder: "e.g. Graduate Research Assistant, Reviewer, Member" },
         { key: "org", label: "Organization", type: "text", wide: true, placeholder: "e.g. Dept. of Electrical Engineering and Computer Science, University of Wyoming" },
         { key: "period", label: "Period", type: "text", placeholder: "e.g. Fall 2023 – Present" },
         { key: "link", label: "Link (optional)", type: "url", placeholder: "https://" },
@@ -294,7 +300,7 @@
     { key: "links.researchgate", label: "ResearchGate URL", type: "url", placeholder: "https://www.researchgate.net/profile/…" },
     { key: "links.cv", label: "CV (PDF, optional)", type: "file", accept: "application/pdf", dir: "files", help: "Adds a “Download CV” button. Leave empty to hide it." },
     { key: "authorHighlight", label: "Author name variants to bold in publications", type: "lines", rows: 5, wide: true, help: "One per line, exactly as they appear in author lists (e.g. M. O. Faruk)." },
-    { key: "sections", label: "Other sections on the About page (Academic Service, Leadership …)", type: "repeater", addLabel: "+ Add section", fields: [
+    { key: "sections", label: "Extra sections on the About page (optional)", type: "repeater", addLabel: "+ Add section", fields: [
       { key: "heading", label: "Section heading", type: "text", wide: true },
       { key: "items", label: "Entries", type: "repeater", addLabel: "+ Add entry", fields: [
         { key: "title", label: "Title", type: "text" },
@@ -404,6 +410,10 @@
     } else {
       const i = h("input", { id, type: f.type || "text", placeholder: f.placeholder });
       i.value = value ?? ""; wrap.append(i); get = () => i.value.trim();
+      if (f.suggestions) {
+        const dl = h("datalist", { id: id + "-list" }, (typeof f.suggestions === "function" ? f.suggestions() : f.suggestions).map((o) => h("option", { value: o })));
+        i.setAttribute("list", dl.id); i.setAttribute("autocomplete", "off"); wrap.append(dl);
+      }
     }
     if (f.help) wrap.append(h("div", { class: "help" }, f.help));
     return { el: wrap, get };
@@ -480,7 +490,8 @@
       } catch (e) { toast(e.message, "err", 8000); } finally { busy(false); }
     };
     const move = async (i, d) => {
-      const j = i + d; if (j < 0 || j >= list.length) return;
+      const j = order[order.indexOf(i) + d];
+      if (j === undefined || (C.groupBy && C.groupBy(list[i]) !== C.groupBy(list[j]))) return;
       try {
         busy("Reordering…");
         const next = list.slice(); [next[i], next[j]] = [next[j], next[i]];

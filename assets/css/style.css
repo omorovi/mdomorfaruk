@@ -133,8 +133,12 @@ main { padding-top: 64px; min-height: calc(100vh - 120px); }
 .entry { display: grid; grid-template-columns: 200px 1fr; gap: 32px; padding: 26px 0; border-bottom: 1px solid var(--line); }
 .entry:first-child { padding-top: 4px; }
 .entry-period { color: var(--accent); font-size: .9rem; font-weight: 600; padding-top: 4px; font-variant-numeric: tabular-nums; }
-.entry h2 { font-size: 1.25rem; letter-spacing: -.005em; }
-.entry h2 a { color: inherit; }
+.entry h2, .entry h3 { font-size: 1.25rem; letter-spacing: -.005em; }
+.entry h2 a, .entry h3 a { color: inherit; }
+.entry-group { margin-bottom: 56px; }
+.entry-group:last-child { margin-bottom: 80px; }
+.entry-group .entries { margin-bottom: 0; }
+.entry-group-title { font-size: 1.5rem; letter-spacing: -.01em; padding-bottom: 12px; margin-bottom: 8px; border-bottom: 2px solid var(--ink); }
 .entry-org { color: var(--ink-2); margin-top: 4px; }
 .entry-desc { color: var(--muted); margin-top: 10px; font-size: .96rem; }
 .entry-desc p:last-child { margin-bottom: 0; }
