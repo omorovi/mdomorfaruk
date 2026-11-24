@@ -7,7 +7,7 @@
 
   const API = "https://api.github.com";
   const LS_KEY = "academic-cms-v1";
-  const DATA_FILES = ["profile", "projects", "publications", "news"];
+  const DATA_FILES = ["profile", "education", "experience", "awards", "projects", "publications", "news"];
   const S = { owner: "", repo: "", branch: "main", token: "", files: {} };
 
   /* ================= Utilities ================= */
@@ -180,6 +180,45 @@
   const PUB_STATUS = [["Published", "Published"], ["Accepted", "Accepted"], ["Under Review", "Under Review"], ["Submitted", "Submitted"], ["In Preparation", "In Preparation"], ["Preprint", "Preprint"], ["", "— None —"]];
 
   const COLLECTIONS = {
+    education: {
+      file: "education", title: "Education", noun: "degree", reorderable: true,
+      intro: "Entries are shown in this order — use the arrows to reorder.",
+      blank: () => ({ title: "", org: "", period: "", description: "" }),
+      summary: (it) => ({ t: it.title || "(untitled)", m: [it.org, it.period].filter(Boolean).join(" · ") }),
+      fields: [
+        { key: "title", label: "Degree", type: "text", required: true, wide: true, placeholder: "e.g. Ph.D. in Electrical Engineering and Computer Science" },
+        { key: "org", label: "Institution & details", type: "text", wide: true, placeholder: "e.g. University of Wyoming, Laramie, WY, USA" },
+        { key: "period", label: "Period", type: "text", placeholder: "e.g. Fall 2023 – Present" },
+        { key: "link", label: "Link (optional)", type: "url", placeholder: "https://" },
+        { key: "description", label: "Description (optional)", type: "textarea", rows: 4, help: "Leave empty to show only the lines above." },
+      ],
+    },
+    experience: {
+      file: "experience", title: "Experience", noun: "position", reorderable: true,
+      intro: "Entries are shown in this order — use the arrows to reorder.",
+      blank: () => ({ title: "", org: "", period: "", description: "" }),
+      summary: (it) => ({ t: it.title || "(untitled)", m: [it.org, it.period].filter(Boolean).join(" · ") }),
+      fields: [
+        { key: "title", label: "Position", type: "text", required: true, wide: true, placeholder: "e.g. Graduate Research Assistant" },
+        { key: "org", label: "Organization", type: "text", wide: true, placeholder: "e.g. Dept. of Electrical Engineering and Computer Science, University of Wyoming" },
+        { key: "period", label: "Period", type: "text", placeholder: "e.g. Fall 2023 – Present" },
+        { key: "link", label: "Link (optional)", type: "url", placeholder: "https://" },
+        { key: "description", label: "Description (optional)", type: "textarea", rows: 4, help: "Leave empty to show only the lines above." },
+      ],
+    },
+    awards: {
+      file: "awards", title: "Awards & Scholarships", noun: "award", reorderable: true,
+      intro: "Entries are shown in this order — use the arrows to reorder.",
+      blank: () => ({ title: "", org: "", period: "", description: "" }),
+      summary: (it) => ({ t: it.title || "(untitled)", m: [it.org, it.period].filter(Boolean).join(" · ") }),
+      fields: [
+        { key: "title", label: "Award or scholarship", type: "text", required: true, wide: true, placeholder: "e.g. ASUW Leadership Scholarship" },
+        { key: "org", label: "Awarded by", type: "text", wide: true, placeholder: "e.g. University of Wyoming" },
+        { key: "period", label: "Period", type: "text", placeholder: "e.g. 2025–2026" },
+        { key: "link", label: "Link (optional)", type: "url", placeholder: "https://" },
+        { key: "description", label: "Description (optional)", type: "textarea", rows: 4, help: "Leave empty to show only the lines above." },
+      ],
+    },
     news: {
       file: "news", title: "News & Updates", noun: "news post",
       intro: "Share conferences, presentations, accepted papers, awards and milestones. Posts appear newest first.",
@@ -255,7 +294,7 @@
     { key: "links.researchgate", label: "ResearchGate URL", type: "url", placeholder: "https://www.researchgate.net/profile/…" },
     { key: "links.cv", label: "CV (PDF, optional)", type: "file", accept: "application/pdf", dir: "files", help: "Adds a “Download CV” button. Leave empty to hide it." },
     { key: "authorHighlight", label: "Author name variants to bold in publications", type: "lines", rows: 5, wide: true, help: "One per line, exactly as they appear in author lists (e.g. M. O. Faruk)." },
-    { key: "sections", label: "CV sections (Education, Experience, Awards …)", type: "repeater", addLabel: "+ Add section", fields: [
+    { key: "sections", label: "Other sections on the About page (Academic Service, Leadership …)", type: "repeater", addLabel: "+ Add section", fields: [
       { key: "heading", label: "Section heading", type: "text", wide: true },
       { key: "items", label: "Entries", type: "repeater", addLabel: "+ Add entry", fields: [
         { key: "title", label: "Title", type: "text" },
@@ -524,7 +563,7 @@
   }
 
   /* ================= App shell & routing ================= */
-  const TABS = [["news", "News & Updates"], ["publications", "Publications"], ["projects", "Research Projects"], ["profile", "About Me"], ["settings", "Settings"]];
+  const TABS = [["news", "News & Updates"], ["publications", "Publications"], ["projects", "Research Projects"], ["education", "Education"], ["experience", "Experience"], ["awards", "Awards & Scholarships"], ["profile", "About Me"], ["settings", "Settings"]];
   function route() {
     if (!S.token) return;
     const tab = (location.hash.slice(1) || "news");

@@ -49,10 +49,10 @@ p { margin: 0 0 1em; }
 .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
 .brand { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; color: var(--ink); letter-spacing: -.005em; }
 .brand:hover { text-decoration: none; color: var(--accent); }
-.nav-links { display: flex; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.nav-links { display: flex; gap: 2px; list-style: none; margin: 0; padding: 0; }
 .nav-links a {
-  display: block; padding: 8px 14px; border-radius: 8px;
-  color: var(--ink-2); font-size: .94rem; font-weight: 500;
+  display: block; padding: 8px 10px; border-radius: 8px;
+  color: var(--ink-2); font-size: .9rem; font-weight: 500; white-space: nowrap;
   transition: background .2s, color .2s;
 }
 .nav-links a:hover { background: var(--bg-soft); color: var(--ink); text-decoration: none; }
@@ -127,6 +127,17 @@ main { padding-top: 64px; min-height: calc(100vh - 120px); }
 .project h2 a { color: inherit; }
 .project-period { color: var(--muted); font-size: .9rem; }
 .project-desc { color: var(--ink-2); margin-top: 8px; white-space: pre-line; }
+
+/* ===== Education / Experience / Awards ===== */
+.entries { list-style: none; margin: 0 0 80px; padding: 0; }
+.entry { display: grid; grid-template-columns: 200px 1fr; gap: 32px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.entry:first-child { padding-top: 4px; }
+.entry-period { color: var(--accent); font-size: .9rem; font-weight: 600; padding-top: 4px; font-variant-numeric: tabular-nums; }
+.entry h2 { font-size: 1.25rem; letter-spacing: -.005em; }
+.entry h2 a { color: inherit; }
+.entry-org { color: var(--ink-2); margin-top: 4px; }
+.entry-desc { color: var(--muted); margin-top: 10px; font-size: .96rem; }
+.entry-desc p:last-child { margin-bottom: 0; }
 
 /* ===== Publications ===== */
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
@@ -216,7 +227,7 @@ a.pub-title:hover { color: var(--accent); }
   .cv-grid { grid-template-columns: 1fr; }
   .project.has-image { grid-template-columns: 1fr; }
 }
-@media (max-width: 720px) {
+@media (max-width: 1100px) {
   .nav-toggle { display: inline-flex; }
   .nav-links {
     position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0;
@@ -226,6 +237,9 @@ a.pub-title:hover { color: var(--accent); }
   }
   .nav-links.open { display: flex; animation: fade .2s ease; }
   .nav-links a { padding: 12px 10px; }
+}
+@media (max-width: 720px) {
+  .entry { grid-template-columns: 1fr; gap: 4px; padding: 20px 0; }
   .page-head { padding-top: 44px; }
   .pub { grid-template-columns: 1fr; gap: 2px; }
   .post { padding-left: 28px; }

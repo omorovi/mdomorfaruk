@@ -155,6 +155,26 @@
     }).join("");
   }
 
+  /* ---------- Education / Experience / Awards ---------- */
+  function renderEntries(list, emptyText) {
+    const el = $("#entries");
+    list = (list || []).filter((it) => it && (it.title || it.org));
+    if (!list.length) { el.innerHTML = `<div class="empty">${esc(emptyText)}</div>`; return; }
+    el.innerHTML = `<ol class="entries">${list.map((it) => {
+      const link = safeUrl(it.link);
+      const title = link ? `<a href="${esc(link)}"${ext(link)}>${esc(it.title)}</a>` : esc(it.title);
+      return `
+        <li class="entry fade-in">
+          <div class="entry-period">${esc(it.period)}</div>
+          <div class="entry-body">
+            <h2>${title}</h2>
+            ${it.org ? `<div class="entry-org">${esc(it.org)}</div>` : ""}
+            ${it.description ? `<div class="entry-desc">${paragraphs(it.description)}</div>` : ""}
+          </div>
+        </li>`;
+    }).join("")}</ol>`;
+  }
+
   /* ---------- Publications ---------- */
   const PUB_GROUPS = [
     { key: "journal", label: "Journal Articles", prefix: "J" },
@@ -299,6 +319,9 @@
       initChrome(profile);
       if (page === "about") renderAbout(profile);
       if (page === "research") renderProjects(await getJSON("projects"));
+      if (page === "education") renderEntries(await getJSON("education"), "Education will appear here.");
+      if (page === "experience") renderEntries(await getJSON("experience"), "Experience will appear here.");
+      if (page === "awards") renderEntries(await getJSON("awards"), "Awards and scholarships will appear here.");
       if (page === "publications") renderPublications(await getJSON("publications"), profile);
       if (page === "news") renderNews(await getJSON("news"));
     } catch (err) {
