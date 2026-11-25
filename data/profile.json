@@ -6,7 +6,7 @@
   "location": "Laramie, WY, USA",
   "email": "mfaruk1@uwyo.edu",
   "photo": "images/profile.jpg",
-  "bio": "I am a Ph.D. student and Graduate Research Assistant in the Department of Electrical Engineering and Computer Science at the University of Wyoming, where I began my doctoral studies in Fall 2023.\n\nMy research goal is to develop an intelligent framework for Controlled Environment Agriculture (CEA) that enables autonomous optimization of environmental parameters through the integration of Generative Artificial Intelligence, Computer Vision, and Reinforcement Learning.\n\nI received my M.Eng. and B.Sc. Eng. degrees in Applied Physics & Electronic Engineering from the University of Rajshahi, Bangladesh, where I worked as a Research Assistant in the Wireless Communication Research Group from 2017 to 2023.",
+  "bio": "Md Omor Faruk is a Graduate Research Assistant and PhD candidate in Electrical Engineering at the University of Wyoming, USA, where he also earned a Master of Engineering in Electrical Engineering. He holds a Master of Engineering and a Bachelor of Science in Electrical and Electronic Engineering, formerly known as Applied Physics and Electronic Engineering, from the University of Rajshahi, Bangladesh.\n\nHis research interests include artificial intelligence, computer vision, reinforcement learning, and wireless communications.\n\nBefore joining the University of Wyoming, he served as a Research Assistant in the Wireless Communications Group at the University of Rajshahi under the supervision of Dr. Sheikh Enayet Ullah from January 2017 to July 2023. He also worked as a Business Analyst at Kazi IT Center Ltd., a U.S.-based property preservation company operating in Bangladesh, from July 2017 to May 2019.",
   "interests": [
     "Generative Artificial Intelligence",
     "Computer Vision",
@@ -29,5 +29,6 @@
     "Omor Faruk, Md",
     "M. O. Faruk"
   ],
-  "sections": []
+  "sections": [],
+  "heroImage": ""
 }
